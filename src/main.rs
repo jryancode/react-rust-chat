@@ -17,7 +17,7 @@ mod session;
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let server = server::ChatServer::new().start();
-    let conn_spec = "chat.db";
+    let conn_spec = "db/chat.db";
     let manager = ConnectionManager::<SqliteConnection>::new(conn_spec);
     let pool = r2d2::Pool::builder()
         .build(manager)
